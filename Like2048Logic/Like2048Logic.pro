@@ -25,13 +25,15 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         Like2048Logic.cpp \
     NumberedTile.cpp \
-    TilesField.cpp
+    AbstractTilesField.cpp \
+    TwoTilesField.cpp
 
 HEADERS += \
         Like2048Logic.hpp \
         like2048logic_global.hpp \ 
     NumberedTile.hpp \
-    TilesField.hpp
+    AbstractTilesField.hpp \
+    TwoTilesField.hpp
 
 unix {
     target.path = /usr/lib

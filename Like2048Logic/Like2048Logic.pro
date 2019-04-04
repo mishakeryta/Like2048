@@ -39,3 +39,5 @@ unix {
     target.path = /usr/lib
     INSTALLS += target
 }
+
+CONFIG += C++17

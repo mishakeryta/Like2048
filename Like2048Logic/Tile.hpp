@@ -2,10 +2,10 @@
 #define NUMBEREDTILE_HPP
 
 #include <cinttypes>
-class NumberedTile
+class Tile
 {
 public:
-    NumberedTile(uint64_t value);
+    Tile(uint64_t value = 0);
     uint64_t value() const { return m_value; }
 private:
     uint64_t m_value;

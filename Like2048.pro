@@ -2,4 +2,5 @@ TEMPLATE = subdirs
 
 SUBDIRS += \
     Like2048Logic
-CONFIG += C++14
+CONFIG += C++17
+

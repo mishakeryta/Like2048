@@ -10,8 +10,9 @@ class TilesKeeper
 {
     using TilesContainer = std::vector<std::vector<std::unique_ptr<Tile>>>;
 public:
-    TilesKeeper(size_t rowCount, size_t columnCount,const Tile& defaultTile);
-
+    TilesKeeper(size_t rowCount, size_t columnCount,const Tile &defaultTile);
+    TilesKeeper(const TilesKeeper& tileKeeper);
+    TilesKeeper& operator=(const TilesKeeper& tileKeeper);
     Tile &at(size_t rowIndex, size_t columnIndex);
     const Tile& at(size_t rowIndex, size_t columnIndex) const;
     Tile &operator()(size_t rowIndex, size_t columnIndex);

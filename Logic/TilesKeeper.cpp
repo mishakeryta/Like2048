@@ -5,11 +5,21 @@
 using namespace std;
 
 
-TilesKeeper::TilesKeeper(size_t rowCount, size_t columnCount,const Tile& defaultTile) :
-    m_tiles(rowCount, vector<unique_ptr<Tile>>(columnCount, unique_ptr<Tile>(new Tile(defaultTile))))
+TilesKeeper::TilesKeeper(size_t rowCount, size_t columnCount, const Tile &defaultTile) :
+    m_tiles(rowCount, vector<unique_ptr<Tile>>(columnCount, std::make_unique(new Tile(defaultTile))))
 {
     Q_ASSERT_X(rowCount != 0, "TilesKeeper::TilesKeeper", "Row count can't be zero");
     Q_ASSERT_X(columnCount != 0, "TilesKeeper::TilesKeeper", "Column count can't be zero");
+}
+
+TilesKeeper::TilesKeeper(const TilesKeeper &tileKeeper)
+{
+
+}
+
+TilesKeeper &TilesKeeper::operator=(const TilesKeeper &tileKeeper)
+{
+
 }
 
 Tile &TilesKeeper::at(size_t rowIndex, size_t columnIndex)
@@ -24,7 +34,7 @@ const Tile &TilesKeeper::at(size_t rowIndex, size_t columnIndex) const
 
 Tile &TilesKeeper::operator()(size_t rowIndex, size_t columnIndex)
 {
-    return *const_cast<Tile&>(static_cast<const TilesKeeper&>(*this).operator()(rowIndex,columnIndex));
+    return const_cast<Tile&>(static_cast<const TilesKeeper&>(*this).operator()(rowIndex,columnIndex));
 }
 
 const Tile &TilesKeeper::operator()(size_t rowIndex, size_t columnIndex) const
